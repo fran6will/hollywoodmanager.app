@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the Game - Hollywood Manager</title>
+  <meta name="description" content="Want to be a character in Hollywood Manager? Submit your info and we'll create an in-game actor inspired by you.">
+  <meta property="og:title" content="Join Hollywood Manager">
+  <meta property="og:description" content="Want to be in the game? Submit your info and get a character based on you.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hollywoodmanager.app/join">
+  <link rel="canonical" href="https://hollywoodmanager.app/join">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1a0a2e 0%, #16213e 40%, #0a0a0a 100%);
+      padding: 60px 20px 40px;
+      text-align: center;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #d4af37, #f5d67b, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #a0a0a0;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #d4af37;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      color: #d0d0d0;
+    }
+
+    label .required {
+      color: #d4af37;
+      margin-left: 2px;
+    }
+
+    label .hint {
+      font-weight: 400;
+      color: #777;
+      font-size: 0.82rem;
+      display: block;
+      margin-top: 2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="url"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      color: #e5e5e5;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #d4af37;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    .genre-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 8px;
+    }
+
+    .genre-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .genre-chip:hover {
+      border-color: #555;
+    }
+
+    .genre-chip.selected {
+      border-color: #d4af37;
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .genre-chip input {
+      display: none;
+    }
+
+    .genre-chip .check {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #555;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .genre-chip.selected .check {
+      background: #d4af37;
+      border-color: #d4af37;
+    }
+
+    .genre-chip.selected .check::after {
+      content: '';
+      width: 5px;
+      height: 9px;
+      border: solid #0a0a0a;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) translateY(-1px);
+    }
+
+    .genre-chip span {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .consent-box {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .consent-box h3 {
+      color: #d4af37;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .consent-box p {
+      color: #999;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .consent-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid #222;
+    }
+
+    .consent-item input[type="checkbox"] {
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      accent-color: #d4af37;
+      flex-shrink: 0;
+    }
+
+    .consent-item label {
+      font-size: 0.9rem;
+      color: #ccc;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 500px) {
+      .row { grid-template-columns: 1fr; }
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #d4af37, #b8941e);
+      color: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 32px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .success-msg h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #d4af37;
+      margin-bottom: 16px;
+    }
+
+    .success-msg p {
+      color: #999;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .error-msg {
+      background: rgba(220, 38, 38, 0.1);
+      border: 1px solid rgba(220, 38, 38, 0.3);
+      color: #f87171;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 24px;
+      color: #555;
+      font-size: 0.8rem;
+      border-top: 1px solid #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>Hollywood Manager</h1>
+    <p>Want to be in the game? Fill out this form and we'll create a character inspired by you in Hollywood Manager.</p>
+  </div>
+
+  <div class="container">
+    <form id="intake-form">
+
+      <!-- PERSONAL INFO -->
+      <div class="section">
+        <h2 class="section-title">Personal Info</h2>
+        <p class="section-desc">Basic details so we can build your in-game character.</p>
+
+        <div class="row">
+          <div class="field">
+            <label>Full Name <span class="required">*</span></label>
+            <input type="text" name="full_name" required placeholder="Your legal name">
+          </div>
+          <div class="field">
+            <label>Stage Name
+              <span class="hint">If different from legal name</span>
+            </label>
+            <input type="text" name="stage_name" placeholder="Your stage/screen name">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Email <span class="required">*</span></label>
+            <input type="email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label>Phone
+              <span class="hint">Optional, for follow-up only</span>
+            </label>
+            <input type="tel" name="phone" placeholder="(555) 123-4567">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Gender <span class="required">*</span></label>
+            <select name="gender" required>
+              <option value="" disabled selected>Select...</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="non-binary">Non-Binary</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Date of Birth <span class="required">*</span></label>
+            <input type="date" name="date_of_birth" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>City
+            <span class="hint">Where you're based</span>
+          </label>
+          <input type="text" name="city" placeholder="Los Angeles, CA">
+        </div>
+      </div>
+
+      <!-- ACTING PROFILE -->
+      <div class="section">
+        <h2 class="section-title">Acting Profile</h2>
+        <p class="section-desc">Tell us about your craft so we can give your character accurate genre skills.</p>
+
+        <div class="field">
+          <label>Bio / About You <span class="required">*</span>
+            <span class="hint">A few sentences about your acting background, training, and vibe</span>
+          </label>
+          <textarea name="bio" required placeholder="Tell us about yourself as an actor..."></textarea>
+        </div>
+
+        <div class="field">
+          <label>Notable Roles / Credits
+            <span class="hint">Films, TV shows, theatre, commercials, etc.</span>
+          </label>
+          <textarea name="notable_roles" placeholder="List your most notable roles or credits..." style="min-height: 80px;"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Genre Strengths <span class="required">*</span>
+            <span class="hint">Pick the genres you're strongest in (select at least 1)</span>
+          </label>
+          <div class="genre-grid" id="genre-grid">
+            <label class="genre-chip" data-genre="action">
+              <input type="checkbox" name="genres" value="action">
+              <div class="check"></div>
+              <span>Action</span>
+            </label>
+            <label class="genre-chip" data-genre="comedy">
+              <input type="checkbox" name="genres" value="comedy">
+              <div class="check"></div>
+              <span>Comedy</span>
+            </label>
+            <label class="genre-chip" data-genre="drama">
+              <input type="checkbox" name="genres" value="drama">
+              <div class="check"></div>
+              <span>Drama</span>
+            </label>
+            <label class="genre-chip" data-genre="horror">
+              <input type="checkbox" name="genres" value="horror">
+              <div class="check"></div>
+              <span>Horror</span>
+            </label>
+            <label class="genre-chip" data-genre="romance">
+              <input type="checkbox" name="genres" value="romance">
+              <div class="check"></div>
+              <span>Romance</span>
+            </label>
+            <label class="genre-chip" data-genre="scifi">
+              <input type="checkbox" name="genres" value="scifi">
+              <div class="check"></div>
+              <span>Sci-Fi</span>
+            </label>
+            <label class="genre-chip" data-genre="thriller">
+              <input type="checkbox" name="genres" value="thriller">
+              <div class="check"></div>
+              <span>Thriller</span>
+            </label>
+            <label class="genre-chip" data-genre="indie">
+              <input type="checkbox" name="genres" value="indie">
+              <div class="check"></div>
+              <span>Indie</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Union Membership
+              <span class="hint">SAG-AFTRA, AEA, etc.</span>
+            </label>
+            <input type="text" name="union_membership" placeholder="e.g. SAG-AFTRA">
+          </div>
+          <div class="field">
+            <label>Social Media
+              <span class="hint">Instagram, TikTok, etc.</span>
+            </label>
+            <input type="text" name="social_media_handle" placeholder="@yourhandle">
+          </div>
+        </div>
+      </div>
+
+      <!-- HEADSHOT -->
+      <div class="section">
+        <h2 class="section-title">Headshot</h2>
+        <p class="section-desc">We'll use your photo as a reference to generate an AI-stylized game portrait. Paste a link to your headshot below (Google Drive, Dropbox, iCloud, Instagram post, etc.).</p>
+
+        <div class="field">
+          <label>Headshot Link
+            <span class="hint">Make sure the link is publicly accessible or set to "anyone with the link"</span>
+          </label>
+          <input type="url" name="headshot_url" placeholder="https://drive.google.com/...">
+        </div>
+      </div>
+
+      <!-- CONSENT -->
+      <div class="section">
+        <h2 class="section-title">Consent & Release</h2>
+        <p class="section-desc">Please read each item carefully. All four checkboxes are required.</p>
+
+        <div class="consent-box">
+          <h3>What you're agreeing to</h3>
+          <p>
+            Hollywood Manager is a mobile game where players manage fictional talent agencies.
+            By submitting this form, you authorize the use of your name, likeness, and biographical
+            details to create an in-game character. Your character will have fictional stats,
+            participate in simulated auditions, and be part of comedic/parody storylines.
+            You may request removal of your character at any time by contacting us.
+          </p>
+
+          <div class="consent-item">
+            <input type="checkbox" id="c1" name="consent_likeness" required>
+            <label for="c1">
+              <strong>Likeness Release</strong> — I grant permission to use my name, photograph, and biographical details to create an in-game character based on me.
+            </label>
+          </div>
+
+          <div class="consent-item">
+            <input type="checkbox" id="c2" name="consent_parody" required>
+            <label for="c2">
+              <strong>Parody & Fiction</strong> — I understand my character may be placed in fictional, comedic, or exaggerated scenarios including parody storylines, scandals, and rivalries that do not reflect real events.
+            </label>
+          </div>
+
+          <div class="consent-item">
+            <input type="checkbox" id="c3" name="consent_ai_imagery" required>
+            <label for="c3">
+              <strong>AI-Generated Imagery</strong> — I consent to the creation of AI-generated artwork based on my likeness for use as my character's in-game portrait and related promotional materials.
+            </label>
+          </div>
+
+          <div class="consent-item">
+            <input type="checkbox" id="c4" name="consent_commercial" required>
+            <label for="c4">
+              <strong>Commercial Use</strong> — I understand Hollywood Manager is a commercial product available on the App Store and Google Play, and my in-game character may appear in gameplay, screenshots, and promotional content.
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">Submit My Info</button>
+      <div class="error-msg" id="error-msg"></div>
+    </form>
+
+    <div class="success-msg" id="success-msg">
+      <h2>You're In!</h2>
+      <p>Thanks for signing up. We'll review your submission and let you know when your character is in the game. Keep an eye on your email!</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    Hollywood Manager &copy; 2026. Your data is stored securely and used only for in-game character creation.
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://tcwyfozluykognfehlck.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjd3lmb3psdXlrb2duZmVobGNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2NjgwOTMsImV4cCI6MjA4ODI0NDA5M30.eFi5Pah4wTurjFXfgFoBIzfdSky-Gre8VY2482MHlgQ';
+
+    // Genre chip toggle
+    document.querySelectorAll('.genre-chip').forEach(chip => {
+      chip.addEventListener('click', (e) => {
+        // The label already toggles the checkbox, just update visual
+        const cb = chip.querySelector('input[type="checkbox"]');
+        // Small delay to let the checkbox toggle first
+        requestAnimationFrame(() => {
+          chip.classList.toggle('selected', cb.checked);
+        });
+      });
+    });
+
+    // Form submission
+    document.getElementById('intake-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+      const btn = document.getElementById('submit-btn');
+      const errorEl = document.getElementById('error-msg');
+      errorEl.style.display = 'none';
+
+      // Collect selected genres
+      const genres = Array.from(form.querySelectorAll('input[name="genres"]:checked'))
+        .map(cb => cb.value);
+
+      if (genres.length === 0) {
+        errorEl.textContent = 'Please select at least one genre strength.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      // Validate all consent checkboxes
+      const consents = ['consent_likeness', 'consent_parody', 'consent_ai_imagery', 'consent_commercial'];
+      const allConsented = consents.every(name => form.querySelector(`[name="${name}"]`).checked);
+      if (!allConsented) {
+        errorEl.textContent = 'Please agree to all four consent items to continue.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      const payload = {
+        full_name: form.full_name.value.trim(),
+        stage_name: form.stage_name.value.trim() || null,
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim() || null,
+        gender: form.gender.value,
+        date_of_birth: form.date_of_birth.value,
+        city: form.city.value.trim() || null,
+        bio: form.bio.value.trim(),
+        notable_roles: form.notable_roles.value.trim() || null,
+        genre_strengths: genres,
+        social_media_handle: form.social_media_handle.value.trim() || null,
+        headshot_url: form.headshot_url.value.trim() || null,
+        union_membership: form.union_membership.value.trim() || null,
+        consent_likeness: true,
+        consent_parody: true,
+        consent_ai_imagery: true,
+        consent_commercial: true,
+        consent_timestamp: new Date().toISOString(),
+      };
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/actor_intake_submissions`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text || 'Submission failed');
+        }
+
+        // Success — hide form, show message
+        form.style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      } catch (err) {
+        errorEl.textContent = 'Something went wrong. Please try again or contact us directly.';
+        errorEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Submit My Info';
+        console.error(err);
+      }
+    });
+  </script>
+
+</body>
+</html>
