@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Hollywood Talent Manager</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0A0A12;
+      color: #ECE8E1;
+      line-height: 1.7;
+      padding: 0 16px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 0 80px;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #D4AF37;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      color: #8888A0;
+      font-size: 0.95rem;
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-size: 1.25rem;
+      color: #ECE8E1;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1A1A28;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #D4AF37;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+    p { margin-bottom: 14px; color: #C8C4BD; }
+    ul, ol { margin: 0 0 14px 24px; color: #C8C4BD; }
+    li { margin-bottom: 6px; }
+    strong { color: #ECE8E1; }
+    a { color: #60A5FA; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card {
+      background: #12121E;
+      border: 1px solid #1A1A28;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+    .card p:last-child { margin-bottom: 0; }
+    .badge {
+      display: inline-block;
+      background: #D4AF37;
+      color: #0A0A12;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid #1A1A28;
+      font-size: 0.92rem;
+    }
+    th { color: #8888A0; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    td { color: #C8C4BD; }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+      .container { padding: 32px 0 60px; }
+      table { font-size: 0.85rem; }
+      th, td { padding: 8px 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">Hollywood Talent Manager &mdash; Last updated March 10, 2026</p>
+
+    <div class="card">
+      <p>Hollywood Talent Manager ("the App") is developed and operated by Francis Rheaume ("we", "us", "our"). This policy describes what data we collect, why, how it is stored, and your rights regarding that data.</p>
+    </div>
+
+    <h2>1. Data We Collect</h2>
+
+    <h3>Account Information</h3>
+    <table>
+      <tr><th>Data</th><th>Source</th><th>Purpose</th></tr>
+      <tr><td><strong>Email address</strong></td><td>Signup / Login</td><td>Authentication, account recovery</td></tr>
+      <tr><td><strong>Name</strong></td><td>Apple Sign-In (optional)</td><td>Display personalization</td></tr>
+      <tr><td><strong>Agency name &amp; display name</strong></td><td>User-created</td><td>Gameplay identity, visible to other players</td></tr>
+      <tr><td><strong>Agency logo</strong></td><td>User-uploaded (optional)</td><td>Gameplay identity, visible to other players</td></tr>
+    </table>
+
+    <h3>Device &amp; Technical Data</h3>
+    <table>
+      <tr><th>Data</th><th>Source</th><th>Purpose</th></tr>
+      <tr><td><strong>Push notification token</strong></td><td>Expo Notifications</td><td>Delivering game alerts and updates</td></tr>
+      <tr><td><strong>Advertising identifier (IDFA)</strong></td><td>Device (iOS ATT prompt)</td><td>Personalized ads via Google AdMob. Only collected if you grant permission via the App Tracking Transparency prompt. You can decline with no impact on gameplay.</td></tr>
+    </table>
+
+    <h3>Gameplay Data</h3>
+    <p>We store data generated through gameplay, including: agency statistics and reputation, actor rosters and training history, casting submissions and audition results, financial transactions (in-game currency), notifications and alerts, trade offers, and league standings.</p>
+
+    <h3>Purchase Data</h3>
+    <p>In-app purchases (rescue tokens, cash injections, ad removal) are processed through <strong>RevenueCat</strong>, which receives transaction data from the App Store or Google Play. We receive purchase status and entitlements but do not store payment card details.</p>
+
+    <h2>2. Third-Party Services</h2>
+
+    <table>
+      <tr><th>Service</th><th>Role</th><th>Data Shared</th></tr>
+      <tr><td><strong>Supabase</strong></td><td>Authentication, database, file storage, realtime sync</td><td>All account and gameplay data</td></tr>
+      <tr><td><strong>RevenueCat</strong></td><td>In-app purchase processing</td><td>App user ID, purchase receipts, entitlements</td></tr>
+      <tr><td><strong>Google AdMob</strong></td><td>Ad serving</td><td>IDFA (with ATT consent), ad interaction data</td></tr>
+      <tr><td><strong>Expo</strong></td><td>Push notifications, OTA updates</td><td>Push token, device platform</td></tr>
+      <tr><td><strong>TMDb</strong></td><td>Actor reference data (server-side)</td><td>No user data shared</td></tr>
+      <tr><td><strong>Google Gemini</strong></td><td>AI image generation for game assets (server-side)</td><td>No user data shared</td></tr>
+    </table>
+
+    <p>Each third-party service operates under its own privacy policy. We encourage you to review them:</p>
+    <ul>
+      <li><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a></li>
+      <li><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat Privacy Policy</a></li>
+      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> (AdMob &amp; Gemini)</li>
+      <li><a href="https://expo.dev/privacy" target="_blank" rel="noopener">Expo Privacy Policy</a></li>
+    </ul>
+
+    <h2>3. How We Use Your Data</h2>
+    <ul>
+      <li><strong>Provide the game experience</strong> &mdash; authenticate your account, save progress, synchronize multiplayer state</li>
+      <li><strong>Communicate with you</strong> &mdash; push notifications for in-game events (configurable in Settings)</li>
+      <li><strong>Display ads</strong> &mdash; serve ads via Google AdMob; personalized only with your ATT consent</li>
+      <li><strong>Process purchases</strong> &mdash; fulfill in-app purchases via RevenueCat</li>
+      <li><strong>Improve the app</strong> &mdash; understand gameplay patterns to balance game mechanics</li>
+    </ul>
+
+    <h2>4. Multiplayer Visibility</h2>
+    <p>Hollywood Talent Manager is a multiplayer game. The following data is visible to other players within your league:</p>
+    <ul>
+      <li>Agency name and display name</li>
+      <li>Agency logo (if uploaded)</li>
+      <li>League standings, reputation, and win/loss statistics</li>
+      <li>Actor roster composition</li>
+    </ul>
+    <p>Your email address is <strong>never</strong> visible to other players.</p>
+
+    <h2>5. Data Retention</h2>
+    <p>Your data is retained for as long as your account exists. Gameplay data (notifications, expired offers, resolved events) may be periodically pruned for performance, but core account and progress data persists until you delete your account.</p>
+
+    <h2>6. Account Deletion</h2>
+    <div class="card">
+      <p>You can delete your account at any time from <strong>Settings &gt; Delete Account</strong> within the app. This permanently deletes:</p>
+      <ul>
+        <li>Your authentication account</li>
+        <li>Your agency and all associated gameplay data</li>
+        <li>All actors, submissions, transactions, and notifications</li>
+        <li>Any uploaded images (agency logo)</li>
+      </ul>
+      <p>Deletion is immediate and irreversible. Data held by third-party services (RevenueCat purchase history, AdMob logs) is subject to those services' own retention policies.</p>
+    </div>
+
+    <h2>7. Data Security</h2>
+    <p>All data is transmitted over HTTPS/TLS. Authentication tokens are stored securely on-device using platform-native secure storage (Keychain on iOS, Keystore on Android). Database access is controlled through Row Level Security (RLS) policies ensuring users can only access their own data.</p>
+
+    <h2>8. Children's Privacy</h2>
+    <p>Hollywood Talent Manager is rated 17+ and is not directed at children under 17. We do not knowingly collect data from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
+
+    <h2>9. Tracking &amp; Advertising</h2>
+    <p>The App uses Apple's App Tracking Transparency (ATT) framework. You will be asked for permission before any tracking occurs. If you decline, ads will still be shown but will not be personalized based on your activity across other apps and websites.</p>
+    <p>You can change your tracking preference at any time in your device's Settings &gt; Privacy &gt; Tracking.</p>
+
+    <h2>10. Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have the right to:</p>
+    <ul>
+      <li>Access the personal data we hold about you</li>
+      <li>Request correction of inaccurate data</li>
+      <li>Request deletion of your data (see Section 6)</li>
+      <li>Object to or restrict processing of your data</li>
+      <li>Data portability</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at the email below.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this policy from time to time. Material changes will be communicated through the app or via email. The "Last updated" date at the top reflects the most recent revision.</p>
+
+    <h2>12. Contact</h2>
+    <div class="card">
+      <p>If you have questions about this privacy policy or your data, contact us at:</p>
+      <p><strong>Email:</strong> <a href="mailto:philiappli@gmail.com">philiappli@gmail.com</a></p>
+      <p><strong>Developer:</strong> Francis Rheaume</p>
+    </div>
+  </div>
+</body>
+</html>
