@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hollygame.manager",
+      "sha256_cert_fingerprints": [
+        "E8:61:3B:A6:9D:26:E3:88:97:F3:E8:A3:38:67:9A:F2:7D:64:A7:15:38:DB:E6:12:43:7F:D6:B6:BB:DD:E0:87"
+      ]
+    }
+  }
+]

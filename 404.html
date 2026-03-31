@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hollywood Talent Manager</title>
+  <meta name="apple-itunes-app" content="app-id=6760136743">
+  <script>
+    // If this is a /refer/ URL, show the referral page inline
+    var path = window.location.pathname;
+    var match = path.match(/\/refer\/([A-Za-z0-9]{4,10})/);
+    if (match) {
+      document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('referral-page').style.display = 'flex';
+        document.getElementById('not-found').style.display = 'none';
+        document.getElementById('referral-code').textContent = match[1].toUpperCase();
+      });
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      background: #0A0A12;
+      color: #ECE8E1;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container { text-align: center; padding: 40px 24px; max-width: 480px; }
+    .crown { font-size: 64px; margin-bottom: 16px; }
+    .badge {
+      display: inline-block;
+      background: #9F7AEA;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      padding: 6px 16px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+    .subtitle { color: #8A8A9A; font-size: 16px; line-height: 1.5; margin-bottom: 32px; }
+    .code-box {
+      background: #1A1A2E;
+      border: 1px solid #9F7AEA44;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .code-label { color: #8A8A9A; font-size: 12px; margin-bottom: 6px; }
+    .code { font-size: 28px; font-weight: 700; letter-spacing: 4px; color: #9F7AEA; }
+    .store-link {
+      display: inline-block;
+      background: #D4AF37;
+      color: #0A0A12;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      margin: 8px;
+    }
+    .store-link:hover { opacity: 0.9; }
+    .note { color: #555568; font-size: 13px; margin-top: 24px; }
+    #referral-page { display: none; min-height: 100vh; align-items: center; justify-content: center; }
+    #not-found { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <!-- Referral page (shown for /refer/ URLs) -->
+  <div id="referral-page">
+    <div class="container">
+      <div class="crown">&#x1F451;</div>
+      <div class="badge">CLOSED CALL</div>
+      <h1>You've Been Invited to Hollywood</h1>
+      <p class="subtitle">
+        A Hollywood insider wants you in their network.
+        Download the game and enter their referral code to get connected.
+      </p>
+      <div class="code-box">
+        <div class="code-label">Your referral code</div>
+        <div class="code" id="referral-code">---</div>
+      </div>
+      <a href="https://apps.apple.com/app/hollywood-talent-manager/id6760136743" class="store-link">
+        Download on App Store
+      </a>
+      <p class="note">Enter the code during setup to link with your mentor.</p>
+    </div>
+  </div>
+
+  <!-- Default 404 (shown for all other URLs) -->
+  <div id="not-found">
+    <div class="container">
+      <div class="crown">&#x1F3AC;</div>
+      <h1>Page Not Found</h1>
+      <p class="subtitle">This scene was cut from the final edit.</p>
+      <a href="/" class="store-link">Back to Hollywood</a>
+    </div>
+  </div>
+</body>
+</html>

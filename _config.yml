@@ -1,0 +1,18 @@
+include:
+  - .well-known
+
+exclude:
+  - app
+  - supabase
+  - docs
+  - node_modules
+  - "*.sql"
+  - "*.ts"
+  - "*.tsx"
+  - "*.json"
+  - "*.js"
+  - "*.md"
+  - "*.lock"
+  - iap-screenshots
+  - skills-lock.json
+  - expo-version-updater.js

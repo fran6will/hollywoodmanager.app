@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "UVRQMUUNT8.com.hollygame.manager"
+        ],
+        "paths": [
+          "/invite/*",
+          "/refer/*"
+        ]
+      }
+    ]
+  }
+}
