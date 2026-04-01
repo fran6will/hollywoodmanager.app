@@ -1,6 +1,6 @@
 include:
   - .well-known
-
+  - app-ads.txt
 exclude:
   - app
   - supabase
